@@ -17,13 +17,14 @@
 
 body {
     height: 100vh;
-    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    background-color: #202123;
+    color: #d1d5db;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: white;
     overflow: hidden;
+    font-family: 'Poppins', sans-serif;
 }
 
 .card {
@@ -192,8 +193,12 @@ button:hover {
 
 
 <script>
+let opened = false;
+
 function openEnvelope() {
-    document.querySelector(".envelope").classList.toggle("open");
+    if (opened) return;
+    document.querySelector(".envelope").classList.add("open");
+    opened = true;
 }
 
 function createHeart() {
@@ -211,6 +216,7 @@ function createHeart() {
 
 setInterval(createHeart, 400);
 </script>
+
 
 </body>
 </html>
