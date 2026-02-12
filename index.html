@@ -105,17 +105,14 @@ button:hover {
 }
 
 .envelope {
-    width: 90vw;       /* 90% of screen width */
-    max-width: 600px;  /* but not bigger than 600px */
-    height: 60vh;      /* 60% of screen height */
-    max-height: 500px;
+    width: 200px;   /* small envelope */
+    height: 120px;
     background: #ff4e88;
     position: relative;
-    border-radius: 15px;
+    border-radius: 10px;
     cursor: pointer;
     overflow: hidden;
 }
-
 
 .flap {
     position: absolute;
@@ -129,28 +126,35 @@ button:hover {
 }
 
 .letter {
-    position: absolute;
-    width: 90%;
-    height: 90%;
+    position: fixed;  /* fixed to viewport */
+    width: 0;
+    height: 0;
     background: white;
     color: #333;
-    bottom: -100%; /* Start fully hidden */
-    left: 5%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     padding: 15px;
-    border-radius: 10px;
+    border-radius: 15px;
     overflow-y: auto;
-    transition: bottom 0.6s ease;
-    font-size: 13px;
-    z-index: 2;
+    font-size: 14px;
+    transition: width 0.6s ease, height 0.6s ease, opacity 0.6s ease;
+    opacity: 0;
+    z-index: 1000;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
 .envelope.open .flap {
     transform: rotateX(180deg);
+    z-index: 1; /* behind letter */
 }
 
 .envelope.open .letter {
-    bottom: 5%; /* Slide up into view */
+    width: 400px;    /* big letter */
+    height: 60vh;
+    opacity: 1;
 }
+
 
 </style>
 </head>
@@ -220,4 +224,3 @@ setInterval(createHeart, 400);
 
 </body>
 </html>
-
