@@ -155,6 +155,49 @@ button:hover {
     opacity: 1;
 }
 
+.open-me {
+    position: relative;
+    font-weight: 700;
+    font-size: 18px;
+    color: #ff4e88;
+    margin-bottom: 15px;
+    user-select: none;
+    cursor: default;
+    animation: bounce 2s infinite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.arrow-down {
+    margin-top: 5px;
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 18px solid #ff4e88;
+    animation: bounceArrow 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+@keyframes bounceArrow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+.gif-below-envelope {
+    display: block;
+    margin: 15px auto 0 auto; /* top margin for spacing, centered */
+    max-width: 200px;         /* max size */
+    width: 100%;
+    border-radius: 10px;      /* optional rounded corners */
+    box-shadow: 0 5px 15px rgba(255, 78, 136, 0.4); /* subtle glow */
+}
+
 
 </style>
 </head>
@@ -162,6 +205,11 @@ button:hover {
 <body>
 
 <div class="container">
+    <div class="open-me">
+        OPEN ME!
+        <div class="arrow-down"></div>
+    </div>
+
     <div class="envelope" onclick="openEnvelope()">
         <div class="flap"></div>
         <div class="letter" id="letter">
@@ -193,6 +241,7 @@ button:hover {
             </p>
         </div>
     </div>
+    <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnNpMzI3M3VnZ2s5eGZqZmpscHR4cHc1dHE3anZleXdtY29wb2Q2bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xR5cPyPoL5HVXSphqA/giphy.gif" alt="Love animation" class="gif-below-envelope" />
 </div>
 
 
